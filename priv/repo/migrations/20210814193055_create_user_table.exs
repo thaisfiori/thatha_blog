@@ -5,7 +5,7 @@ defmodule ThathaBlog.Repo.Migrations.CreateUserTable do
     create table :users do
       add :display_name, :string
       add :email, :string
-      add :password, :string
+      add :password_hash, :string
       add :image, :string
 
       timestamps()
