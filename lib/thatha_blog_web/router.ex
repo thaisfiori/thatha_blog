@@ -8,7 +8,7 @@ defmodule ThathaBlogWeb.Router do
   scope "/api", ThathaBlogWeb do
     pipe_through :api
 
-    get "/", WelcomeController, :index
+    post "/user", UsersController, :create
   end
 
   # Enables LiveDashboard only for development
