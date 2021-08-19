@@ -6,6 +6,7 @@ defmodule ThathaBlog.User do
   @primary_key {:id, :binary_id, autogenerate: true}
   @required [:email, :password]
   @optional [:display_name, :image]
+  @email_regex ~r<\A[a-zA-Z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\z>
 
   schema "users" do
     field :display_name, :string
@@ -23,7 +24,7 @@ defmodule ThathaBlog.User do
     |> validate_required(@required)
     |> validate_length(:password, min: 6)
     |> validate_length(:display_name, min: 8)
-    |> validate_format(:email, ~r/@/)
+    |> validate_format(:email, @email_regex)
     |> unique_constraint([:email])
     |> put_password_hash()
   end

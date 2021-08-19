@@ -23,10 +23,9 @@ defmodule ThathaBlogWeb.ErrorView do
   end
 
   defp translate_errors(changeset) do
-    # error =
     traverse_errors(changeset, fn {msg, opts} ->
       Enum.reduce(opts, msg, fn {key, value}, acc ->
-        String.replace(acc, "%{#{key}}", to_string(value))
+        String.replace(acc, "%{#{key}}", to_string(value)) |> IO.inspect()
       end)
     end)
   end
