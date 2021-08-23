@@ -16,8 +16,6 @@ defmodule ThathaBlog.Post do
   end
 
   def changeset(params) do
-    IO.inspect(params)
-
     %__MODULE__{}
     |> cast(params, @required)
     |> validate_required(@required)

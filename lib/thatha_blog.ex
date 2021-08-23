@@ -14,6 +14,9 @@ defmodule ThathaBlog do
 
   alias ThathaBlog.Posts.Create, as: PostCreate
   alias ThathaBlog.Posts.ListPosts, as: PostList
+  alias ThathaBlog.Posts.Update, as: PostUpdate
+  alias ThathaBlog.Posts.Delete, as: PostDelete
+  alias ThathaBlog.Posts.Index, as: PostIndex
 
   defdelegate sign_in(params), to: UserSignIn, as: :call
 
@@ -27,4 +30,7 @@ defmodule ThathaBlog do
   defdelegate create_post(params), to: PostCreate, as: :call
   defdelegate list_post(), to: PostList, as: :call
   defdelegate list_post(params), to: PostList, as: :list_one
+  defdelegate update_post(params), to: PostUpdate, as: :call
+  defdelegate delete_post(params), to: PostDelete, as: :call
+  defdelegate index_post(params), to: PostIndex, as: :call
 end

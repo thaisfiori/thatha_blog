@@ -16,18 +16,31 @@ defmodule ThathaBlogWeb.PostsController do
     # |> handle_response(conn)
   end
 
-  def index(conn, params) do
+  def list_one(conn, params) do
     params
     |> ThathaBlog.list_post()
     |> handle_response(conn)
   end
 
-  #   def delete(_conn, params) do
-  #     params
-  #     |> ThathaBlog.delete_me()
+  def update(_conn, params) do
+    params
+    |> ThathaBlog.update_post()
 
-  #     # |> handle_response(conn)
-  #   end
+    # |> handle_response(conn)
+  end
+
+  def index(conn, params) do
+    params
+    |> ThathaBlog.index_post()
+    |> handle_response(conn)
+  end
+
+  def delete(_conn, params) do
+    params
+    |> ThathaBlog.delete_post()
+
+    # |> handle_response(conn)
+  end
 
   defp handle_response({:ok, %User{} = user}, conn) do
     conn

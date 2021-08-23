@@ -13,13 +13,16 @@ defmodule ThathaBlogWeb.Router do
     # user routers
     post "/user", UsersController, :create
     get "/user", UsersController, :list
-    get "user/:id", UsersController, :index
-    delete "user/me", UsersController, :delete
+    get "/user/:id", UsersController, :list_one
+    delete "/user/me", UsersController, :delete
 
     # post routers
     post "/post", PostsController, :create
     get "/post", PostsController, :list
-    get "/post/id", PostsController, :index
+    get "/post/id", PostsController, :list_one
+    put "/post/:id", PostsController, :update
+    get "/post/search?q=:searchTerm", PostsController, :index
+    delete "/post/:id", PostsController, :delete
   end
 
   # Enables LiveDashboard only for development

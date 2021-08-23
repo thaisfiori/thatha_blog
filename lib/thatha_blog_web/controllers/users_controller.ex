@@ -16,7 +16,7 @@ defmodule ThathaBlogWeb.UsersController do
     # |> handle_response(conn)
   end
 
-  def index(conn, params) do
+  def list_one(conn, params) do
     params
     |> ThathaBlog.list_users()
     |> handle_response(conn)
