@@ -25,8 +25,9 @@ defmodule ThathaBlogWeb.ErrorView do
   defp translate_errors(changeset) do
     traverse_errors(changeset, fn {msg, opts} ->
       Enum.reduce(opts, msg, fn {key, value}, acc ->
-        String.replace(acc, "%{#{key}}", to_string(value)) |> IO.inspect()
+        String.replace(acc, "%{#{key}}", to_string(value))
       end)
     end)
+    |> Enum.map_join(", ", fn {key, val} -> ~s{"#{key}" "#{val}"} end)
   end
 end

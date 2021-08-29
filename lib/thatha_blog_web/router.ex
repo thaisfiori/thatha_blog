@@ -8,7 +8,7 @@ defmodule ThathaBlogWeb.Router do
   scope "/api", ThathaBlogWeb do
     pipe_through :api
 
-    post "/login", UsersController, :sign_in
+    post "/login", UsersController, :login
 
     # user routers
     post "/user", UsersController, :create

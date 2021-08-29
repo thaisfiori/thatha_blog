@@ -22,6 +22,8 @@ config :thatha_blog, ThathaBlogWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :joken, default_signer: "joaquimzeratchopi"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
